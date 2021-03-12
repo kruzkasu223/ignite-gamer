@@ -9,7 +9,10 @@ html {
         width: 0.5rem;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: darkgray;
+        background-color: #ff7676;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: #fdd;
     }
 
     scrollbar-color: #ff7676 #fdd;
