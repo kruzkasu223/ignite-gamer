@@ -1,34 +1,52 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { smallImage } from "../utils";
 import "../../styles/GameDetail.scss";
+import logo from "../../images/logo.svg";
 
-export default function GameDetail() {
+export default function GameDetail({ pathId }) {
+    const history = useHistory();
+    const exitDetailHandler = (e) => {
+        const element = e.target;
+        if (element.classList.contains("GameDetail")) {
+            document.body.style.overflow = "auto";
+            history.push("/");
+        }
+    };
+
     const { game, screen, isLoading } = useSelector((state) => state.detail);
 
     return (
         <>
             {!isLoading && (
-                <motion.div className="GameDetail">
-                    <motion.div className="detail">
+                <motion.div className="GameDetail" onClick={exitDetailHandler}>
+                    <motion.div className="detail" layoutId={pathId}>
                         <motion.div className="stats">
-                            <div className="rating">
-                                <h3>{game.name}</h3>
-                                <p>Rating: {game.rating}</p>
-                            </div>
-                            <div className="info">
-                                <h3>Platforms</h3>
+                            <motion.div className="rating">
+                                <motion.h3 layoutId={`title ${pathId}`}>
+                                    {game.name}
+                                </motion.h3>
+                                <motion.p>Rating: {game.rating}</motion.p>
+                            </motion.div>
+                            <motion.div className="info">
+                                <motion.h3>Platforms</motion.h3>
                                 <motion.div className="platforms">
                                     {game.platforms.map((data) => (
-                                        <h3 key={data.platform.id}>
+                                        <motion.h3 key={data.platform.id}>
                                             {data.platform.name}
-                                        </h3>
+                                        </motion.h3>
                                     ))}
                                 </motion.div>
-                            </div>
+                            </motion.div>
                         </motion.div>
                         <motion.div className="media">
-                            <img src={game.background_image} alt={game.name} />
+                            <motion.img
+                                layoutId={`image ${pathId}`}
+                                src={smallImage(game.background_image, "1280")}
+                                alt={game.name}
+                            />
                         </motion.div>
                         <motion.div
                             className="description"
@@ -40,7 +58,7 @@ export default function GameDetail() {
                             {screen.results.map((screen) => (
                                 <img
                                     key={screen.id}
-                                    src={screen.image}
+                                    src={smallImage(screen.image, "640")}
                                     alt={game.name}
                                 />
                             ))}
