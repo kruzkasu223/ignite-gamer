@@ -11,6 +11,7 @@
     "author": "Krushang Kasundra",
     "license": "ISC",
     "dependencies": {
+        "axios": "^0.21.1",
         "framer-motion": "^3.10.2",
         "parcel-bundler": "^1.12.4",
         "react": "^17.0.1",
