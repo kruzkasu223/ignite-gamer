@@ -15,7 +15,6 @@ export default function Game({ id, name, released, image }) {
         dispatch(loadDetail(id));
         document.body.style.overflow = "hidden";
     };
-    // layoutId={`image-${stringPathId}`}
 
     return (
         <motion.div
@@ -24,7 +23,7 @@ export default function Game({ id, name, released, image }) {
             onClick={loadDetailHandler}
         >
             <Link to={`/game/${id}`}>
-                <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
+                <motion.h3>{name}</motion.h3>
                 <motion.p>{released}</motion.p>
                 <motion.img
                     layoutId={`image ${stringPathId}`}

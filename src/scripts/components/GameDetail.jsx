@@ -65,9 +65,7 @@ export default function GameDetail({ pathId }) {
                     <motion.div className="detail" layoutId={pathId}>
                         <motion.div className="stats">
                             <div className="rating">
-                                <h3 layoutId={`title ${pathId}`}>
-                                    {game.name}
-                                </h3>
+                                <h3>{game.name}</h3>
                                 <p>Rating: {game.rating}</p>
                                 {getStars()}
                             </div>

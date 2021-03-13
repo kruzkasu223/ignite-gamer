@@ -17,7 +17,9 @@ export default function Home() {
         dispatch(loadGames());
     }, [dispatch]);
 
-    const { popular, newGames, upcoming } = useSelector((state) => state.games);
+    const { popular, newGames, upcoming, searched } = useSelector(
+        (state) => state.games
+    );
 
     return (
         <motion.div className="Home">
@@ -25,6 +27,25 @@ export default function Home() {
                 <AnimatePresence>
                     {pathId && <GameDetail pathId={pathId} />}
                 </AnimatePresence>
+
+                {searched.length ? (
+                    <div className="searched">
+                        <h2>Searched Games</h2>
+                        <motion.div className="games">
+                            {searched.map((game) => (
+                                <Game
+                                    key={game.id}
+                                    id={game.id}
+                                    name={game.name}
+                                    released={game.released}
+                                    image={game.background_image}
+                                />
+                            ))}
+                        </motion.div>
+                    </div>
+                ) : (
+                    ""
+                )}
 
                 <h2>Upcoming Games</h2>
                 <motion.div className="games">
