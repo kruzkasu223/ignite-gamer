@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { fetchSearch } from "../actions/gamesAction";
 
 import { motion } from "framer-motion";
+import { fadeIn } from "../utils/animation";
 import logo from "../../images/logo.svg";
 import "../../styles/Nav.scss";
 
@@ -25,7 +26,12 @@ export default function Nav() {
     };
 
     return (
-        <motion.nav className="Nav">
+        <motion.nav
+            variants={fadeIn}
+            initial="hidden"
+            animate="show"
+            className="Nav"
+        >
             <div className="logo_wrapper">
                 <motion.div onClick={clearSearched} className="logo">
                     <img src={logo} alt="Ignite Logo" />

@@ -4,6 +4,7 @@ import { loadGames } from "../actions/gamesAction";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { useLocation } from "react-router-dom";
 
+import { fadeIn } from "../utils/animation";
 import GameDetail from "../components/GameDetail";
 import Game from "../components/Game";
 import "../../styles/Home.scss";
@@ -22,7 +23,12 @@ export default function Home() {
     );
 
     return (
-        <motion.div className="Home">
+        <motion.div
+            className="Home"
+            variants={fadeIn}
+            initial="hidden"
+            animate="show"
+        >
             <AnimateSharedLayout>
                 <AnimatePresence>
                     {pathId && <GameDetail pathId={pathId} />}
