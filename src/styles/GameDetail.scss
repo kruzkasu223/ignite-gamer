@@ -56,6 +56,10 @@
 
                     img {
                         margin-left: 3rem;
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
                     }
                 }
             }
@@ -74,27 +78,4 @@
             text-align: justify;
         }
     }
-
-    // .loader_div {
-    //     display: grid;
-    //     place-items: center;
-    //     width: 100%;
-    //     min-height: 90vh;
-
-    //     .loader {
-    //         width: 5rem;
-    //         animation: blinking 0.5s ease-in infinite;
-    //     }
-    //     @keyframes blinking {
-    //         0% {
-    //             opacity: 1;
-    //         }
-    //         50% {
-    //             opacity: 0;
-    //         }
-    //         100% {
-    //             opacity: 1;
-    //         }
-    //     }
-    // }
 }

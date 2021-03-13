@@ -1,0 +1,73 @@
+.Nav {
+    padding: 3rem 5rem;
+    text-align: center;
+
+    .logo_wrapper {
+        display: grid;
+        place-items: center;
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1rem auto;
+            cursor: pointer;
+
+            h1 {
+                font-family: "Abril Fatface", cursive;
+                font-weight: lighter;
+                color: #ff7676;
+                font-size: 2rem;
+            }
+
+            img {
+                display: inline;
+                margin-right: 1rem;
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+
+    .search {
+        input {
+            width: 30%;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            border: none;
+            margin-top: 1rem;
+            border-radius: 0.5rem 0 0 0.5rem;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            &:hover {
+                box-shadow: 0 0 30px rgba(255, 118, 118, 0.5);
+                outline: 1px solid #ff7676;
+                -moz-outline-radius: 0.5rem 0 0 0.5rem;
+            }
+            &:focus {
+                box-shadow: 0 0 30px rgba(255, 118, 118, 0.8);
+                outline: 2px solid #ff7676;
+                -moz-outline-radius: 0.5rem 0 0 0.5rem;
+            }
+        }
+        button {
+            font-size: 1.5rem;
+            border: none;
+            padding: 0.5rem 2rem;
+            cursor: pointer;
+            background-color: #ff7676;
+            color: white;
+            border-radius: 0 0.5rem 0.5rem 0;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            &:hover {
+                box-shadow: 0 0 30px rgba(255, 118, 118, 0.5);
+                outline: 1px solid #ff7676;
+                -moz-outline-radius: 0 0.5rem 0.5rem 0;
+            }
+            &:focus {
+                box-shadow: 0 0 30px rgba(255, 118, 118, 0.8);
+                outline: 2px solid #ff7676;
+                -moz-outline-radius: 0 0.5rem 0.5rem 0;
+            }
+        }
+    }
+}

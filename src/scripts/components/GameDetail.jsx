@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { smallImage } from "../utils";
+import { smallImage } from "../utils/smallImage";
 import "../../styles/GameDetail.scss";
 
 import apple from "../../images/apple.svg";

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import { smallImage } from "../utils";
+import { smallImage } from "../utils/smallImage";
 import { loadDetail } from "../actions/detailAction";
 import "../../styles/Game.scss";
 
