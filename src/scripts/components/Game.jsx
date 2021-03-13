@@ -9,7 +9,6 @@ import { loadDetail } from "../actions/detailAction";
 import "../../styles/Game.scss";
 
 export default function Game({ id, name, released, image }) {
-    const stringPathId = id.toString();
     const dispatch = useDispatch();
 
     const loadDetailHandler = () => {
@@ -22,18 +21,13 @@ export default function Game({ id, name, released, image }) {
             variants={popup}
             initial="hidden"
             animate="show"
-            layoutId={stringPathId}
             className="Game"
             onClick={loadDetailHandler}
         >
             <Link to={`/game/${id}`}>
                 <motion.h3>{name}</motion.h3>
                 <motion.p>{released}</motion.p>
-                <motion.img
-                    layoutId={`image ${stringPathId}`}
-                    src={smallImage(image, "420")}
-                    alt={name}
-                />
+                <motion.img src={smallImage(image, "420")} alt={name} />
             </Link>
         </motion.div>
     );

@@ -4,10 +4,19 @@
     width: 100%;
     min-height: 90vh;
 
-    .logo {
+    img.logo {
         width: 5rem;
         animation: blinking 0.5s ease-in infinite;
     }
+}
+
+.loader_wrap {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 @keyframes blinking {

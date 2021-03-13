@@ -17,6 +17,7 @@ export default function Nav() {
 
     const submitSearch = (e) => {
         e.preventDefault();
+        dispatch({ type: "LOADING_GAME" });
         dispatch(fetchSearch(textInput));
         setTextInput("");
     };

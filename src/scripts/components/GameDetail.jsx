@@ -4,9 +4,14 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { smallImage } from "../utils/smallImage";
 import "../../styles/GameDetail.scss";
+import "../../styles/PreLoader.scss";
 
+import logo from "../../images/logo.svg";
 import apple from "../../images/apple.svg";
-import steam from "../../images/steam.svg";
+import pc from "../../images/pc.svg";
+import web from "../../images/web.svg";
+import linux from "../../images/linux.svg";
+import android from "../../images/android.svg";
 import xbox from "../../images/xbox.svg";
 import gamepad from "../../images/gamepad.svg";
 import nintendo from "../../images/nintendo.svg";
@@ -14,7 +19,7 @@ import playstation from "../../images/playstation.svg";
 import starFull from "../../images/star-full.png";
 import starEmpty from "../../images/star-empty.png";
 
-export default function GameDetail({ pathId }) {
+export default function GameDetail() {
     const history = useHistory();
     const exitDetailHandler = (e) => {
         const element = e.target;
@@ -26,7 +31,7 @@ export default function GameDetail({ pathId }) {
 
     const getStars = () => {
         const stars = [];
-        const rating = Math.floor(game.rating);
+        const rating = Math.round(game.rating);
 
         for (let i = 1; i <= 5; i++) {
             if (i <= rating) {
@@ -41,16 +46,36 @@ export default function GameDetail({ pathId }) {
 
     const getPlatform = (platform) => {
         switch (platform) {
+            case "PlayStation 1":
+            case "PlayStation 2":
+            case "PlayStation 3":
             case "PlayStation 4":
+            case "PlayStation 5":
+            case "PSP":
+            case "PS Vita":
                 return playstation;
+            case "Xbox":
             case "Xbox One":
+            case "Xbox 360":
+            case "Xbox Series S/X":
                 return xbox;
             case "PC":
-                return steam;
+                return pc;
             case "Nintendo Switch":
+            case "Nintendo 3DS":
+            case "Nintendo DS":
+            case "Nintendo DSi":
+            case "Nintendo 64":
                 return nintendo;
             case "iOS":
+            case "macOS":
                 return apple;
+            case "Android":
+                return android;
+            case "Linux":
+                return linux;
+            case "Web":
+                return web;
             default:
                 return gamepad;
         }
@@ -60,55 +85,68 @@ export default function GameDetail({ pathId }) {
 
     return (
         <>
-            {!isLoading && (
-                <motion.div className="GameDetail" onClick={exitDetailHandler}>
-                    <motion.div className="detail" layoutId={pathId}>
-                        <motion.div className="stats">
-                            <div className="rating">
-                                <h3>{game.name}</h3>
-                                <p>Rating: {game.rating}</p>
-                                {getStars()}
-                            </div>
-                            <div className="info">
-                                <h3>Platforms</h3>
-                                <div className="platforms">
-                                    {game.platforms.map((data) => (
-                                        <img
-                                            key={data.platform.id}
-                                            src={getPlatform(
-                                                data.platform.name
-                                            )}
-                                            alt={data.platform.name}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                        </motion.div>
-                        <motion.div className="media">
-                            <motion.img
-                                layoutId={`image ${pathId}`}
-                                src={smallImage(game.background_image, "1280")}
-                                alt={game.name}
+            <motion.div className="GameDetail" onClick={exitDetailHandler}>
+                <motion.div className="detail">
+                    {isLoading && (
+                        <div className="PreLoader">
+                            <img
+                                className="logo"
+                                src={logo}
+                                alt="Pre Loader Logo"
                             />
-                        </motion.div>
-                        <motion.div
-                            className="description"
-                            dangerouslySetInnerHTML={{
-                                __html: game.description,
-                            }}
-                        ></motion.div>
-                        <div className="gallary">
-                            {screen.results.map((screen) => (
-                                <img
-                                    key={screen.id}
-                                    src={smallImage(screen.image, "640")}
+                        </div>
+                    )}
+                    {!isLoading && (
+                        <>
+                            <motion.div className="stats">
+                                <div className="rating">
+                                    <h3>{game.name}</h3>
+                                    <p>Rating: {game.rating}</p>
+                                    {getStars()}
+                                </div>
+                                <div className="info">
+                                    <h3>Platforms</h3>
+                                    <div className="platforms">
+                                        {game.platforms.map((data) => (
+                                            <img
+                                                key={data.platform.id}
+                                                src={getPlatform(
+                                                    data.platform.name
+                                                )}
+                                                alt={data.platform.name}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            </motion.div>
+                            <motion.div className="media">
+                                <motion.img
+                                    src={smallImage(
+                                        game.background_image,
+                                        "1280"
+                                    )}
                                     alt={game.name}
                                 />
-                            ))}
-                        </div>
-                    </motion.div>
+                            </motion.div>
+                            <motion.div
+                                className="description"
+                                dangerouslySetInnerHTML={{
+                                    __html: game.description,
+                                }}
+                            ></motion.div>
+                            <div className="gallary">
+                                {screen.results.map((screen) => (
+                                    <img
+                                        key={screen.id}
+                                        src={smallImage(screen.image, "640")}
+                                        alt={game.name}
+                                    />
+                                ))}
+                            </div>
+                        </>
+                    )}
                 </motion.div>
-            )}
+            </motion.div>
         </>
     );
 }
