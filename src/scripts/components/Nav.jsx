@@ -34,10 +34,10 @@ export default function Nav() {
             className="Nav"
         >
             <div className="logo_wrapper">
-                <motion.div onClick={clearSearched} className="logo">
+                <div onClick={clearSearched} className="logo">
                     <img src={logo} alt="Ignite Logo" />
                     <h1>Ignite Gamer</h1>
-                </motion.div>
+                </div>
             </div>
             <form onSubmit={submitSearch} className="search">
                 <input

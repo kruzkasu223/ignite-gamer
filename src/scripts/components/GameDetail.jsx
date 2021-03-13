@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -86,8 +85,8 @@ export default function GameDetail() {
 
     return (
         <>
-            <motion.div className="GameDetail" onClick={exitDetailHandler}>
-                <motion.div className="detail">
+            <div className="GameDetail" onClick={exitDetailHandler}>
+                <div className="detail">
                     {isLoading && (
                         <div className="PreLoader">
                             <img
@@ -99,7 +98,7 @@ export default function GameDetail() {
                     )}
                     {!isLoading && (
                         <>
-                            <motion.div className="stats">
+                            <div className="stats">
                                 <div className="rating">
                                     <h3>{game.name}</h3>
                                     <p>Rating: {game.rating}</p>
@@ -120,22 +119,22 @@ export default function GameDetail() {
                                         ))}
                                     </div>
                                 </div>
-                            </motion.div>
-                            <motion.div className="media">
-                                <motion.img
+                            </div>
+                            <div className="media">
+                                <img
                                     src={smallImage(
                                         game.background_image,
                                         "1280"
                                     )}
                                     alt={game.name}
                                 />
-                            </motion.div>
-                            <motion.div
+                            </div>
+                            <div
                                 className="description"
                                 dangerouslySetInnerHTML={{
                                     __html: game.description,
                                 }}
-                            ></motion.div>
+                            ></div>
                             <div className="gallary">
                                 {screen.results.map((screen) => (
                                     <img
@@ -147,8 +146,8 @@ export default function GameDetail() {
                             </div>
                         </>
                     )}
-                </motion.div>
-            </motion.div>
+                </div>
+            </div>
         </>
     );
 }

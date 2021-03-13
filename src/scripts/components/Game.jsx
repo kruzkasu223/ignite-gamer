@@ -25,9 +25,9 @@ export default function Game({ id, name, released, image }) {
             onClick={loadDetailHandler}
         >
             <Link to={`/game/${id}`}>
-                <motion.h3>{name}</motion.h3>
-                <motion.p>{released}</motion.p>
-                <motion.img src={smallImage(image, "420")} alt={name} />
+                <h3>{name}</h3>
+                <p>{released}</p>
+                <img src={smallImage(image, "420")} alt={name} />
             </Link>
         </motion.div>
     );

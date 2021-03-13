@@ -51,7 +51,7 @@ export default function Home() {
             {searched.length ? (
                 <motion.div variants={fadeIn} className="searched">
                     <h2>Searched Games</h2>
-                    <motion.div className="games">
+                    <div className="games">
                         {searched.map((game) => (
                             <Game
                                 key={game.id}
@@ -61,14 +61,14 @@ export default function Home() {
                                 image={game.background_image}
                             />
                         ))}
-                    </motion.div>
+                    </div>
                 </motion.div>
             ) : (
                 ""
             )}
 
             <h2>Upcoming Games</h2>
-            <motion.div className="games">
+            <div className="games">
                 {upcoming.map((game) => (
                     <Game
                         key={game.id}
@@ -78,10 +78,10 @@ export default function Home() {
                         image={game.background_image}
                     />
                 ))}
-            </motion.div>
+            </div>
 
             <h2>Popular Games</h2>
-            <motion.div className="games">
+            <div className="games">
                 {popular.map((game) => (
                     <Game
                         key={game.id}
@@ -91,10 +91,10 @@ export default function Home() {
                         image={game.background_image}
                     />
                 ))}
-            </motion.div>
+            </div>
 
             <h2>New Games</h2>
-            <motion.div className="games">
+            <div className="games">
                 {newGames.map((game) => (
                     <Game
                         key={game.id}
@@ -104,7 +104,7 @@ export default function Home() {
                         image={game.background_image}
                     />
                 ))}
-            </motion.div>
+            </div>
         </motion.div>
     );
 }
