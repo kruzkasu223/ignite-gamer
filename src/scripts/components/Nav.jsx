@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { fetchSearch } from "../actions/gamesAction";
-
 import { motion } from "framer-motion";
+
+import { fetchSearch } from "../actions/gamesAction";
 import { fadeIn } from "../utils/animation";
 import logo from "../../images/logo.svg";
 import "../../styles/Nav.scss";
@@ -36,7 +36,7 @@ export default function Nav() {
             <div className="logo_wrapper">
                 <motion.div onClick={clearSearched} className="logo">
                     <img src={logo} alt="Ignite Logo" />
-                    <h1>Ignite</h1>
+                    <h1>Ignite Gamer</h1>
                 </motion.div>
             </div>
             <form onSubmit={submitSearch} className="search">

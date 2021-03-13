@@ -1,4 +1,5 @@
 .Home {
+    margin: 2rem 0;
     padding: 0 5rem;
 
     h2 {
@@ -13,5 +14,50 @@
         grid-column-gap: 3rem;
         grid-row-gap: 5rem;
         align-items: flex-end;
+    }
+}
+
+@media (max-width: 1200px) {
+    .Home {
+        .games {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+    }
+}
+
+@media (max-width: 950px) {
+    .Home {
+        padding: 0 4rem;
+
+        h2 {
+            padding: 4rem 0;
+        }
+
+        .games {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-column-gap: 2rem;
+            grid-row-gap: 2rem;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .Home {
+        padding: 0 2rem;
+
+        h2 {
+            padding: 3rem 0;
+        }
+        .games {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+    }
+}
+
+@media (max-width: 300px) {
+    .Home {
+        .games {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
     }
 }

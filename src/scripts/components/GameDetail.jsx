@@ -2,11 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+
 import { smallImage } from "../utils/smallImage";
 import "../../styles/GameDetail.scss";
 import "../../styles/PreLoader.scss";
-
 import logo from "../../images/logo.svg";
+
 import apple from "../../images/apple.svg";
 import pc from "../../images/pc.svg";
 import web from "../../images/web.svg";
@@ -21,6 +22,7 @@ import starEmpty from "../../images/star-empty.png";
 
 export default function GameDetail() {
     const history = useHistory();
+
     const exitDetailHandler = (e) => {
         const element = e.target;
         if (element.classList.contains("GameDetail")) {
@@ -40,7 +42,6 @@ export default function GameDetail() {
                 stars.push(<img key={i} src={starEmpty} alt="star" />);
             }
         }
-
         return stars;
     };
 
@@ -113,6 +114,7 @@ export default function GameDetail() {
                                                 src={getPlatform(
                                                     data.platform.name
                                                 )}
+                                                title={data.platform.name}
                                                 alt={data.platform.name}
                                             />
                                         ))}

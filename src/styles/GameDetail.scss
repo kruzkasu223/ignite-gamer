@@ -81,3 +81,42 @@
         }
     }
 }
+
+@media (max-width: 700px) {
+    .GameDetail {
+        .detail {
+            padding: 2rem 3rem;
+
+            .media {
+                margin-top: 3rem;
+            }
+
+            .description {
+                margin: 3rem 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .GameDetail {
+        .detail {
+            padding: 2rem;
+            .stats {
+                .rating {
+                    img {
+                        width: 1.5rem;
+                    }
+                }
+                .info {
+                    .platforms {
+                        img {
+                            width: 1.5rem;
+                            margin-left: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+import { loadDetail } from "../actions/detailAction";
 import { popup } from "../utils/animation";
 import { smallImage } from "../utils/smallImage";
-import { loadDetail } from "../actions/detailAction";
 import "../../styles/Game.scss";
 
 export default function Game({ id, name, released, image }) {

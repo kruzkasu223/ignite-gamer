@@ -23,8 +23,10 @@ const upcoming_games = `dates=${currentDate},${nextYear}&ordering=-added&page_si
 
 export const popularGamesURL = () =>
     `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${popular_games}`;
+
 export const newGamesURL = () =>
     `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${new_games}`;
+
 export const upcomingGamesURL = () =>
     `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${upcoming_games}`;
 

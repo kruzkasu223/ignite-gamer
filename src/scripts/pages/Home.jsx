@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadGames } from "../actions/gamesAction";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 
-import { fadeIn } from "../utils/animation";
-import GameDetail from "../components/GameDetail";
 import Game from "../components/Game";
+import GameDetail from "../components/GameDetail";
+
+import { loadGames } from "../actions/gamesAction";
+import { fadeIn } from "../utils/animation";
+import logo from "../../images/logo.svg";
 import "../../styles/Home.scss";
 import "../../styles/PreLoader.scss";
-import logo from "../../images/logo.svg";
 
 export default function Home() {
     const location = useLocation();
     const pathId = location.pathname.split("/")[2];
-
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(loadGames());
     }, [dispatch]);
@@ -23,6 +24,9 @@ export default function Home() {
     const { popular, newGames, upcoming, searched, isLoading } = useSelector(
         (state) => state.games
     );
+
+    !pathId && (document.body.style.overflow = "auto");
+    pathId && (document.body.style.overflow = "hidden");
 
     return (
         <motion.div

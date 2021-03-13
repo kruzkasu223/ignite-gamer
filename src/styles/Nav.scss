@@ -1,5 +1,6 @@
 .Nav {
-    padding: 3rem 5rem;
+    margin: 2rem 0;
+    padding: 0 5rem;
     text-align: center;
 
     .logo_wrapper {
@@ -38,17 +39,20 @@
             margin-top: 1rem;
             border-radius: 0.5rem 0 0 0.5rem;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+
             &:hover {
                 box-shadow: 0 0 30px rgba(255, 118, 118, 0.5);
                 outline: 1px solid #ff7676;
                 -moz-outline-radius: 0.5rem 0 0 0.5rem;
             }
+
             &:focus {
                 box-shadow: 0 0 30px rgba(255, 118, 118, 0.8);
                 outline: 2px solid #ff7676;
                 -moz-outline-radius: 0.5rem 0 0 0.5rem;
             }
         }
+
         button {
             font-size: 1.5rem;
             border: none;
@@ -58,15 +62,70 @@
             color: white;
             border-radius: 0 0.5rem 0.5rem 0;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-            &:hover {
+
+            &:hover,
+            &:focus {
                 box-shadow: 0 0 30px rgba(255, 118, 118, 0.5);
+                filter: brightness(110%);
+            }
+
+            &:hover {
                 outline: 1px solid #ff7676;
                 -moz-outline-radius: 0 0.5rem 0.5rem 0;
             }
             &:focus {
-                box-shadow: 0 0 30px rgba(255, 118, 118, 0.8);
                 outline: 2px solid #ff7676;
                 -moz-outline-radius: 0 0.5rem 0.5rem 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .Nav {
+        .search {
+            input {
+                width: 50%;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .Nav {
+        .search {
+            input {
+                width: 70%;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .Nav {
+        .search {
+            button {
+                padding: 0.5rem 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .Nav {
+        .search {
+            input {
+                width: 60%;
+            }
+        }
+    }
+}
+
+@media (max-width: 300px) {
+    .Nav {
+        .search {
+            input {
+                width: 50%;
             }
         }
     }

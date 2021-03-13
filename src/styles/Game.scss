@@ -12,3 +12,11 @@
         object-fit: cover;
     }
 }
+
+@media (max-width: 300px) {
+    .Game {
+        img {
+            height: 30vh;
+        }
+    }
+}
