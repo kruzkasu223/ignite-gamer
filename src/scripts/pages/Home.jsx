@@ -62,6 +62,9 @@ export default function Home({ upcomingRef, popularRef, newgamesRef }) {
                             />
                         ))}
                     </div>
+                    <div className="load_btn_wrapper">
+                        <button>Load More</button>
+                    </div>
                 </motion.div>
             ) : (
                 ""
@@ -79,6 +82,9 @@ export default function Home({ upcomingRef, popularRef, newgamesRef }) {
                     />
                 ))}
             </div>
+            <div className="load_btn_wrapper">
+                <button>Load More</button>
+            </div>
 
             <h2 ref={popularRef}>Popular Games</h2>
             <div className="games">
@@ -92,6 +98,9 @@ export default function Home({ upcomingRef, popularRef, newgamesRef }) {
                     />
                 ))}
             </div>
+            <div className="load_btn_wrapper">
+                <button>Load More</button>
+            </div>
 
             <h2 ref={newgamesRef}>New Games</h2>
             <div className="games">
@@ -104,6 +113,9 @@ export default function Home({ upcomingRef, popularRef, newgamesRef }) {
                         image={game.background_image}
                     />
                 ))}
+            </div>
+            <div className="load_btn_wrapper">
+                <button>Load More</button>
             </div>
         </motion.div>
     );
