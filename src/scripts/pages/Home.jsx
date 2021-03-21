@@ -6,9 +6,14 @@ import { useLocation } from "react-router-dom";
 import Game from "../components/Game";
 import GameDetail from "../components/GameDetail";
 
-import { loadGames } from "../actions/gamesAction";
+import {
+    loadGames,
+    loadMorePopular,
+    loadMoreNewGames,
+    loadMoreUpcoming,
+    loadMoreSearched,
+} from "../actions/gamesAction";
 import { fadeIn } from "../utils/animation";
-import logo from "../../images/logo.svg";
 import "../../styles/Home.scss";
 import "../../styles/PreLoader.scss";
 
@@ -21,9 +26,16 @@ export default function Home({ upcomingRef, popularRef, newgamesRef }) {
         dispatch(loadGames());
     }, [dispatch]);
 
-    const { popular, newGames, upcoming, searched, isLoading } = useSelector(
-        (state) => state.games
-    );
+    const {
+        popular,
+        newGames,
+        upcoming,
+        searched,
+        popularNext,
+        newGamesNext,
+        upcomingNext,
+        searchedNext,
+    } = useSelector((state) => state.games);
 
     !pathId && (document.body.style.overflow = "auto");
     pathId && (document.body.style.overflow = "hidden");
@@ -35,17 +47,6 @@ export default function Home({ upcomingRef, popularRef, newgamesRef }) {
             initial="hidden"
             animate="show"
         >
-            {isLoading && (
-                <div className="loader_wrap">
-                    <div className="PreLoader">
-                        <img
-                            className="logo"
-                            src={logo}
-                            alt="Pre Loader Logo"
-                        />
-                    </div>
-                </div>
-            )}
             {pathId && <GameDetail />}
 
             {searched.length ? (
@@ -62,9 +63,19 @@ export default function Home({ upcomingRef, popularRef, newgamesRef }) {
                             />
                         ))}
                     </div>
-                    <div className="load_btn_wrapper">
-                        <button>Load More</button>
-                    </div>
+                    {searchedNext ? (
+                        <div className="load_btn_wrapper">
+                            <button
+                                onClick={() => {
+                                    dispatch(loadMoreSearched());
+                                }}
+                            >
+                                Load More
+                            </button>
+                        </div>
+                    ) : (
+                        ""
+                    )}
                 </motion.div>
             ) : (
                 ""
@@ -82,9 +93,19 @@ export default function Home({ upcomingRef, popularRef, newgamesRef }) {
                     />
                 ))}
             </div>
-            <div className="load_btn_wrapper">
-                <button>Load More</button>
-            </div>
+            {upcomingNext ? (
+                <div className="load_btn_wrapper">
+                    <button
+                        onClick={() => {
+                            dispatch(loadMoreUpcoming());
+                        }}
+                    >
+                        Load More
+                    </button>
+                </div>
+            ) : (
+                ""
+            )}
 
             <h2 ref={popularRef}>Popular Games</h2>
             <div className="games">
@@ -98,9 +119,19 @@ export default function Home({ upcomingRef, popularRef, newgamesRef }) {
                     />
                 ))}
             </div>
-            <div className="load_btn_wrapper">
-                <button>Load More</button>
-            </div>
+            {popularNext ? (
+                <div className="load_btn_wrapper">
+                    <button
+                        onClick={() => {
+                            dispatch(loadMorePopular());
+                        }}
+                    >
+                        Load More
+                    </button>
+                </div>
+            ) : (
+                ""
+            )}
 
             <h2 ref={newgamesRef}>New Games</h2>
             <div className="games">
@@ -114,9 +145,19 @@ export default function Home({ upcomingRef, popularRef, newgamesRef }) {
                     />
                 ))}
             </div>
-            <div className="load_btn_wrapper">
-                <button>Load More</button>
-            </div>
+            {newGamesNext ? (
+                <div className="load_btn_wrapper">
+                    <button
+                        onClick={() => {
+                            dispatch(loadMoreNewGames());
+                        }}
+                    >
+                        Load More
+                    </button>
+                </div>
+            ) : (
+                ""
+            )}
         </motion.div>
     );
 }

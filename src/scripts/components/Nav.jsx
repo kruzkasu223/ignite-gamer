@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 
+import { loadGames } from "../actions/gamesAction";
 import { fetchSearch } from "../actions/gamesAction";
 import { fadeIn } from "../utils/animation";
 import logo from "../../images/logo.svg";
@@ -18,12 +19,15 @@ export default function Nav({ upcomingRef, popularRef, newgamesRef }) {
     const submitSearch = (e) => {
         e.preventDefault();
         dispatch({ type: "LOADING_GAME" });
+        dispatch({ type: "CLEAR_SEARCHED" });
         dispatch(fetchSearch(textInput));
         setTextInput("");
     };
 
     const clearSearched = () => {
         dispatch({ type: "CLEAR_SEARCHED" });
+        dispatch({ type: "CLEAR_ALL" });
+        dispatch(loadGames());
     };
 
     const upcomingHandler = () => {

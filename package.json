@@ -1,7 +1,7 @@
 {
     "name": "ignite-gamer",
-    "version": "1.0.0",
-    "description": "",
+    "version": "2.0.0",
+    "description": "Only One Place for Hard Core Gamer on the Internet - Ignite Gamer",
     "main": "index.js",
     "scripts": {
         "start": "parcel serve src/index.html",

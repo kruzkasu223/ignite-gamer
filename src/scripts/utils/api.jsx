@@ -1,3 +1,5 @@
+import { store } from "../index";
+
 const base_url = `https://api.rawg.io/api/`;
 
 const getCurrentMonth = () => {
@@ -21,14 +23,28 @@ const popular_games = `ordering=-rating&page_size=10`;
 const new_games = `dates=${lastYear},${currentDate}&ordering=-released&page_size=10`;
 const upcoming_games = `dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
 
-export const popularGamesURL = () =>
-    `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${popular_games}`;
+export const popularGamesURL = () => {
+    if (typeof store.getState().games.popularNext === "string") {
+        return store.getState().games.popularNext;
+    } else {
+        return `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${popular_games}`;
+    }
+};
 
-export const newGamesURL = () =>
-    `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${new_games}`;
-
-export const upcomingGamesURL = () =>
-    `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${upcoming_games}`;
+export const newGamesURL = () => {
+    if (typeof store.getState().games.newGamesNext === "string") {
+        return store.getState().games.newGamesNext;
+    } else {
+        return `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${new_games}`;
+    }
+};
+export const upcomingGamesURL = () => {
+    if (typeof store.getState().games.upcomingNext === "string") {
+        return store.getState().games.upcomingNext;
+    } else {
+        return `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${upcoming_games}`;
+    }
+};
 
 export const gameDetailsURL = (game_id) =>
     `${base_url}games/${game_id}?key=${process.env.REACT_RAWG_API_KEY}`;
@@ -36,5 +52,10 @@ export const gameDetailsURL = (game_id) =>
 export const gameScreenshotURL = (game_id) =>
     `${base_url}games/${game_id}/screenshots?key=${process.env.REACT_RAWG_API_KEY}`;
 
-export const searchGameURL = (game_name) =>
-    `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&search=${game_name}&page_size=10`;
+export const searchGameURL = (game_name) => {
+    if (typeof store.getState().games.searchedNext === "string") {
+        return store.getState().games.searchedNext;
+    } else {
+        return `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&search=${game_name}&page_size=10`;
+    }
+};

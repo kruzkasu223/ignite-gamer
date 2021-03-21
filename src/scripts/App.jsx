@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import { Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
+import logo from "../images/logo.svg";
 import arrowup from "../images/arrowup.svg";
 
 export default function App() {
@@ -10,6 +12,7 @@ export default function App() {
     const upcomingRef = useRef();
     const popularRef = useRef();
     const newgamesRef = useRef();
+    const { isLoading } = useSelector((state) => state.games);
 
     const backToTopHandler = () => {
         appRef.current.scrollIntoView({ behavior: "smooth" });
@@ -32,6 +35,18 @@ export default function App() {
                     newgamesRef={newgamesRef}
                 />
             </Route>
+
+            {isLoading && (
+                <div className="loader_wrap">
+                    <div className="PreLoader">
+                        <img
+                            className="logo"
+                            src={logo}
+                            alt="Pre Loader Logo"
+                        />
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
