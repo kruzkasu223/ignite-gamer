@@ -12,7 +12,7 @@ import logo from "../../images/logo.svg";
 import "../../styles/Home.scss";
 import "../../styles/PreLoader.scss";
 
-export default function Home() {
+export default function Home({ upcomingRef, popularRef, newgamesRef }) {
     const location = useLocation();
     const pathId = location.pathname.split("/")[2];
     const dispatch = useDispatch();
@@ -67,7 +67,7 @@ export default function Home() {
                 ""
             )}
 
-            <h2>Upcoming Games</h2>
+            <h2 ref={upcomingRef}>Upcoming Games</h2>
             <div className="games">
                 {upcoming.map((game) => (
                     <Game
@@ -80,7 +80,7 @@ export default function Home() {
                 ))}
             </div>
 
-            <h2>Popular Games</h2>
+            <h2 ref={popularRef}>Popular Games</h2>
             <div className="games">
                 {popular.map((game) => (
                     <Game
@@ -93,7 +93,7 @@ export default function Home() {
                 ))}
             </div>
 
-            <h2>New Games</h2>
+            <h2 ref={newgamesRef}>New Games</h2>
             <div className="games">
                 {newGames.map((game) => (
                     <Game

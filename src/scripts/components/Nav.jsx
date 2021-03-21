@@ -7,7 +7,7 @@ import { fadeIn } from "../utils/animation";
 import logo from "../../images/logo.svg";
 import "../../styles/Nav.scss";
 
-export default function Nav() {
+export default function Nav({ upcomingRef, popularRef, newgamesRef }) {
     const dispatch = useDispatch();
     const [textInput, setTextInput] = useState("");
 
@@ -24,6 +24,16 @@ export default function Nav() {
 
     const clearSearched = () => {
         dispatch({ type: "CLEAR_SEARCHED" });
+    };
+
+    const upcomingHandler = () => {
+        upcomingRef.current.scrollIntoView({ behavior: "smooth" });
+    };
+    const popularHandler = () => {
+        popularRef.current.scrollIntoView({ behavior: "smooth" });
+    };
+    const newgamesHandler = () => {
+        newgamesRef.current.scrollIntoView({ behavior: "smooth" });
     };
 
     return (
@@ -48,6 +58,11 @@ export default function Nav() {
                 />
                 <button type="submit">Search</button>
             </form>
+            <div className="section_nav">
+                <a onClick={upcomingHandler}>Upcoming Games</a>
+                <a onClick={popularHandler}>Popular Games</a>
+                <a onClick={newgamesHandler}>New Games</a>
+            </div>
         </motion.nav>
     );
 }

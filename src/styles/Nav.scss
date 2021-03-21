@@ -79,6 +79,33 @@
             }
         }
     }
+
+    .section_nav {
+        margin-top: 3rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        a {
+            text-decoration: underline;
+            margin: 0 1rem;
+            padding: 0.5rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+
+            &:first-child,
+            &:last-child {
+                margin: 0;
+            }
+
+            &:hover,
+            &:focus {
+                color: #ff7676;
+            }
+        }
+    }
 }
 
 @media (max-width: 1400px) {
