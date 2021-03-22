@@ -19,31 +19,25 @@ const currentDate = `${currYear}-${currMonth}-${currDay}`;
 const lastYear = `${currYear - 1}-${currMonth}-${currDay}`;
 const nextYear = `${currYear + 1}-${currMonth}-${currDay}`;
 
-const popular_games = `ordering=-rating&page_size=10`;
+const popular_games = `page_size=10`;
 const new_games = `dates=${lastYear},${currentDate}&ordering=-released&page_size=10`;
 const upcoming_games = `dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
 
 export const popularGamesURL = () => {
-    if (typeof store.getState().games.popularNext === "string") {
-        return store.getState().games.popularNext;
-    } else {
-        return `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${popular_games}`;
-    }
+    return typeof store.getState().games.popularNext === "string"
+        ? store.getState().games.popularNext
+        : `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${popular_games}`;
 };
 
 export const newGamesURL = () => {
-    if (typeof store.getState().games.newGamesNext === "string") {
-        return store.getState().games.newGamesNext;
-    } else {
-        return `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${new_games}`;
-    }
+    return typeof store.getState().games.newGamesNext === "string"
+        ? store.getState().games.newGamesNext
+        : `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${new_games}`;
 };
 export const upcomingGamesURL = () => {
-    if (typeof store.getState().games.upcomingNext === "string") {
-        return store.getState().games.upcomingNext;
-    } else {
-        return `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${upcoming_games}`;
-    }
+    return typeof store.getState().games.upcomingNext === "string"
+        ? store.getState().games.upcomingNext
+        : `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&${upcoming_games}`;
 };
 
 export const gameDetailsURL = (game_id) =>
@@ -53,9 +47,7 @@ export const gameScreenshotURL = (game_id) =>
     `${base_url}games/${game_id}/screenshots?key=${process.env.REACT_RAWG_API_KEY}`;
 
 export const searchGameURL = (game_name) => {
-    if (typeof store.getState().games.searchedNext === "string") {
-        return store.getState().games.searchedNext;
-    } else {
-        return `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&search=${game_name}&page_size=10`;
-    }
+    return typeof store.getState().games.searchedNext === "string"
+        ? store.getState().games.searchedNext
+        : `${base_url}games?key=${process.env.REACT_RAWG_API_KEY}&search=${game_name}&page_size=10`;
 };

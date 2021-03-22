@@ -81,32 +81,6 @@ export default function Home({ upcomingRef, popularRef, newgamesRef }) {
                 ""
             )}
 
-            <h2 ref={upcomingRef}>Upcoming Games</h2>
-            <div className="games">
-                {upcoming.map((game) => (
-                    <Game
-                        key={game.id}
-                        id={game.id}
-                        name={game.name}
-                        released={game.released}
-                        image={game.background_image}
-                    />
-                ))}
-            </div>
-            {upcomingNext ? (
-                <div className="load_btn_wrapper">
-                    <button
-                        onClick={() => {
-                            dispatch(loadMoreUpcoming());
-                        }}
-                    >
-                        Load More
-                    </button>
-                </div>
-            ) : (
-                ""
-            )}
-
             <h2 ref={popularRef}>Popular Games</h2>
             <div className="games">
                 {popular.map((game) => (
@@ -124,6 +98,32 @@ export default function Home({ upcomingRef, popularRef, newgamesRef }) {
                     <button
                         onClick={() => {
                             dispatch(loadMorePopular());
+                        }}
+                    >
+                        Load More
+                    </button>
+                </div>
+            ) : (
+                ""
+            )}
+
+            <h2 ref={upcomingRef}>Upcoming Games</h2>
+            <div className="games">
+                {upcoming.map((game) => (
+                    <Game
+                        key={game.id}
+                        id={game.id}
+                        name={game.name}
+                        released={game.released}
+                        image={game.background_image}
+                    />
+                ))}
+            </div>
+            {upcomingNext ? (
+                <div className="load_btn_wrapper">
+                    <button
+                        onClick={() => {
+                            dispatch(loadMoreUpcoming());
                         }}
                     >
                         Load More

@@ -19,6 +19,11 @@ html {
     scrollbar-width: thin;
 }
 
+*::selection {
+    background-color: #fdd;
+    color: #000;
+}
+
 body {
     font-family: "Montserrat", sans-serif;
     width: 100%;

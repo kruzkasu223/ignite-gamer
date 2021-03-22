@@ -63,8 +63,8 @@ export default function Nav({ upcomingRef, popularRef, newgamesRef }) {
                 <button type="submit">Search</button>
             </form>
             <div className="section_nav">
-                <a onClick={upcomingHandler}>Upcoming Games</a>
                 <a onClick={popularHandler}>Popular Games</a>
+                <a onClick={upcomingHandler}>Upcoming Games</a>
                 <a onClick={newgamesHandler}>New Games</a>
             </div>
         </motion.nav>
