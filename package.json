@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "parcel serve ./src/public/index.html",
-        "build": "rm -rf ./build && parcel build ./src/public/*.html -d ./build"
+        "build": "rm -rf ./build && parcel build ./src/public/*.html -d ./build --no-source-maps"
     },
     "keywords": [],
     "author": "Krushang Kasundra",
