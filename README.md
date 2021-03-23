@@ -2,4 +2,4 @@
 
 ## Only One Place for Hard Core Gamer on the Internet - Ignite Gamer
 
-[v2.1]
+[v2.2]
