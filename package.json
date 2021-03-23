@@ -1,11 +1,11 @@
 {
     "name": "ignite-gamer",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "description": "Only One Place for Hard Core Gamer on the Internet - Ignite Gamer",
     "main": "index.js",
     "scripts": {
-        "start": "parcel serve ./src/public/index.html",
-        "build": "rm -rf ./build && parcel build ./src/public/*.html -d ./build --no-source-maps"
+        "start": "parcel serve ./public/index.html",
+        "build": "rm -rf ./build && parcel build ./public/* -d ./build --no-source-maps"
     },
     "keywords": [],
     "author": "Krushang Kasundra",
