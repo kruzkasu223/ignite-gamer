@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://ignite.thekruz.tech/sitemap.txt
